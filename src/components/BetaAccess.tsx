@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { ArrowRight, Star, ShieldCheck, Trophy, Sparkles, Heart, Zap } from 'lucide-react';
+import { ArrowRight, Star, Trophy, Sparkles, Heart, Zap } from 'lucide-react';
+import { APP_SIGNUP_URL } from '../config';
 
 export default function BetaAccess() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const accolades = [
     {
@@ -50,25 +49,13 @@ export default function BetaAccess() {
 
             {/* Application Form */}
             <div className="max-w-md w-full">
-              {isSubmitted ? (
-                <div className="p-5 rounded-card bg-[#242424] border border-accent-blue/30 text-text-primary">
-                  <div className="flex items-center space-x-3">
-                    <ShieldCheck className="text-accent-blue w-6 h-6 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-text-primary text-sm">Application Submitted</p>
-                      <p className="text-xs text-text-secondary/70 mt-0.5">We will notify you about your slot status within 24 hours.</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setIsSubmitted(true)}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
-                >
-                  Get Started for FREE
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
-              )}
+              <a
+                href={APP_SIGNUP_URL}
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
+              >
+                Get Started for FREE
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
             </div>
           </div>
 

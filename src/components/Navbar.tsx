@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { APP_SIGNUP_URL } from '../config';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Navbar() {
         {/* Right - CTA (Desktop) */}
         <div className="hidden md:block">
           <a
-            href="#beta-program"
+            href={APP_SIGNUP_URL}
             className="inline-flex items-center justify-center px-5 py-2.5 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale animate-none"
           >
             Get Started for FREE
@@ -78,7 +79,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#beta-program"
+            href={APP_SIGNUP_URL}
             onClick={() => setIsOpen(false)}
             className="block text-center w-full px-5 py-3 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale"
           >

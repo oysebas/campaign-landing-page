@@ -1,5 +1,6 @@
 import { ArrowRight, Zap, X } from 'lucide-react';
 import { useState } from 'react';
+import { APP_SIGNUP_URL } from '../config';
 
 export default function Hero() {
   const [activeOption, setActiveOption] = useState<'single' | 'campaign' | 'flow'>('single');
@@ -21,7 +22,7 @@ export default function Hero() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto">
           <a
-            href="#beta-program"
+            href={APP_SIGNUP_URL}
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
           >
             Get Started for FREE
