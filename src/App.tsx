@@ -20,13 +20,21 @@ function App() {
         });
       },
       { 
-        threshold: 0.05,
-        rootMargin: '0px 0px -50px 0px' // Triggers slightly before it enters the viewport fully
+        threshold: 0.01,
+        rootMargin: '0px 0px 80px 0px' // Eagerly trigger slightly before it enters the viewport
       }
     );
 
     const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => {
+      // Eagerly reveal if already in or above the viewport on mount
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('is-visible');
+        el.setAttribute('data-visible', 'true');
+      }
+      observer.observe(el);
+    });
 
     return () => observer.disconnect();
   }, []);

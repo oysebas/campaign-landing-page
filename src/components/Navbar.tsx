@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1000px]">
-      <nav className="w-full bg-[#242424]/80 backdrop-blur-md border border-white/[0.06] rounded-full py-4 px-8 flex items-center justify-between shadow-lg">
+      <nav className="w-full bg-[#0c0c0c]/80 backdrop-blur-md border border-white/[0.06] rounded-full py-4 px-8 flex items-center justify-between shadow-lg">
         {/* Left - Logo */}
         <div className="flex-shrink-0 flex items-center">
           <a href="#" className="font-serif text-xl tracking-normal text-text-primary font-medium flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center justify-center p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-[#242424]/50 focus:outline-none transition-colors duration-200 touch-hitbox btn-active-scale"
+            className="inline-flex items-center justify-center p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-[#0c0c0c]/50 focus:outline-none transition-colors duration-200 touch-hitbox btn-active-scale"
             aria-expanded={isOpen}
             aria-label="Toggle menu"
           >
@@ -61,7 +61,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-200 ease-[var(--ease-out-quart)] origin-top mt-2 border border-white/[0.06] bg-[#242424]/95 backdrop-blur-md rounded-2xl shadow-lg ${
+        className={`md:hidden overflow-hidden transition-all duration-200 ease-[var(--ease-out-quart)] origin-top mt-2 border border-white/[0.06] bg-[#0c0c0c]/95 backdrop-blur-md rounded-2xl shadow-lg ${
           isOpen 
             ? 'max-h-64 opacity-100 scale-100 translate-y-0 py-4 pointer-events-auto' 
             : 'max-h-0 opacity-0 scale-[0.98] -translate-y-2 pointer-events-none py-0'

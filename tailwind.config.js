@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         'dark-canvas': '#0c0c0c',
-        'card-bg': '#242424',
+        'card-bg': '#0c0c0c',
         'text-primary': '#f3f3f3',
         'text-secondary': '#a1a1aa',
         'accent-blue': '#3651FF',
         'accent-blue-hover': '#223ad9',
-        'section-alt': '#161616',
+        'section-alt': '#0c0c0c',
         'hairline-border': 'rgba(243, 243, 243, 0.08)',
       },
       fontFamily: {
