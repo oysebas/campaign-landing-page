@@ -26,7 +26,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-xs uppercase tracking-wider font-semibold text-text-secondary hover:text-text-primary transition-colors duration-200"
+              className="text-xs uppercase tracking-wider font-semibold text-text-secondary hover:text-text-primary transition-all duration-150 ease-[var(--ease-hover)] btn-active-scale"
             >
               {link.name}
             </a>
@@ -37,7 +37,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <a
             href="#beta-program"
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary transition-all duration-200 animate-none"
+            className="inline-flex items-center justify-center px-5 py-2.5 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale animate-none"
           >
             Get Started for FREE
             <ArrowUpRight className="ml-1.5 w-3.5 h-3.5" />
@@ -49,7 +49,7 @@ export default function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center justify-center p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-[#242424]/50 focus:outline-none transition-colors duration-200"
+            className="inline-flex items-center justify-center p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-[#242424]/50 focus:outline-none transition-colors duration-200 touch-hitbox btn-active-scale"
             aria-expanded={isOpen}
             aria-label="Toggle menu"
           >
@@ -60,8 +60,10 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out mt-2 border border-white/[0.06] bg-[#242424]/95 backdrop-blur-md rounded-2xl shadow-lg ${
-          isOpen ? 'max-h-64 opacity-100 py-4' : 'max-h-0 opacity-0 pointer-events-none'
+        className={`md:hidden overflow-hidden transition-all duration-200 ease-[var(--ease-out-quart)] origin-top mt-2 border border-white/[0.06] bg-[#242424]/95 backdrop-blur-md rounded-2xl shadow-lg ${
+          isOpen 
+            ? 'max-h-64 opacity-100 scale-100 translate-y-0 py-4 pointer-events-auto' 
+            : 'max-h-0 opacity-0 scale-[0.98] -translate-y-2 pointer-events-none py-0'
         }`}
       >
         <div className="px-6 space-y-3">
@@ -70,7 +72,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium text-text-secondary hover:text-text-primary py-2"
+              className="block text-sm font-medium text-text-secondary hover:text-text-primary py-2 transition-colors duration-150 ease-[var(--ease-hover)]"
             >
               {link.name}
             </a>
@@ -78,7 +80,7 @@ export default function Navbar() {
           <a
             href="#beta-program"
             onClick={() => setIsOpen(false)}
-            className="block text-center w-full px-5 py-3 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary transition-all duration-200"
+            className="block text-center w-full px-5 py-3 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale"
           >
             Get Started for FREE
           </a>

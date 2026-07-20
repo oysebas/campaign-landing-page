@@ -22,14 +22,14 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto">
           <a
             href="#beta-program"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
           >
             Get Started for FREE
             <ArrowRight className="ml-2 w-4 h-4" />
           </a>
           <a
             href="#features"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-[#242424] hover:bg-[#323232] border border-white/10 text-text-primary font-semibold text-sm transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-[#242424] hover:bg-[#323232] border border-white/10 text-text-primary font-semibold text-sm btn-active-scale"
           >
             Explore Features
           </a>
@@ -42,7 +42,7 @@ export default function Hero() {
         </p>
 
         {/* CampaignOS Dashboard Mockup (Custom Dark theme) */}
-        <div className="mt-16 w-full max-w-[1100px] border border-white/10 rounded-card bg-[#161616] overflow-hidden flex flex-col text-left transition-all duration-500 hover:border-white/20 relative shadow-2xl">
+        <div className="mt-16 w-full max-w-[1100px] border border-white/10 rounded-card bg-[#161616] overflow-hidden flex flex-col text-left transition-all duration-300 hover:border-white/20 hover:scale-[1.005] relative shadow-2xl ease-[var(--ease-out-quart)] will-change-transform">
           
           {/* Fading gradient overlay at the bottom fading to dark-canvas #0c0c0c */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-canvas via-dark-canvas/75 to-transparent pointer-events-none z-20" />
@@ -53,7 +53,7 @@ export default function Hero() {
               <span className="bg-dark-canvas text-accent-blue text-[9px] px-1.5 py-0.5 rounded font-mono">NEW</span>
               Build your email your way. Pick exactly which blocks it includes, in the order you want.
             </span>
-            <X className="w-4 h-4 cursor-pointer opacity-70 hover:opacity-100" />
+            <X className="w-4 h-4 cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-150" />
           </div>
 
           {/* Navigation Bar */}
@@ -176,7 +176,7 @@ export default function Hero() {
                     <div
                       key={opt.id}
                       onClick={() => setActiveOption(opt.id as any)}
-                      className={`p-4 rounded-card border cursor-pointer transition-all duration-200 flex flex-col justify-between min-h-[140px] ${
+                      className={`p-4 rounded-card border cursor-pointer transition-all duration-200 active:scale-[0.98] flex flex-col justify-between min-h-[140px] ${
                         activeOption === opt.id
                           ? 'bg-[#242424] border-accent-blue text-text-primary'
                           : 'bg-[#0c0c0c]/60 border-white/10 hover:border-white/20 text-text-secondary hover:text-text-primary'
@@ -197,7 +197,7 @@ export default function Hero() {
               {/* Step Footer */}
               <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-8 text-xs">
                 <span className="text-text-secondary/60">Complete this step to continue.</span>
-                <button className="inline-flex items-center px-4 py-2 bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold rounded-button transition-colors duration-200">
+                <button className="inline-flex items-center px-4 py-2 bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold rounded-button btn-active-scale">
                   Continue
                   <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                 </button>

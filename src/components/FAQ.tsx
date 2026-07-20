@@ -51,8 +51,9 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
+                style={{ transitionDelay: `${idx * 100}ms` }}
                 onClick={() => setExpandedIndex(isExpanded ? null : idx)}
-                className={`rounded-card border transition-all duration-300 overflow-hidden cursor-pointer ${
+                className={`reveal-on-scroll rounded-card border transition-colors duration-200 overflow-hidden cursor-pointer ${
                   isExpanded
                     ? 'bg-card-bg border-accent-blue/40 text-text-primary'
                     : 'bg-dark-canvas border-white/10 text-text-secondary hover:text-text-primary hover:border-white/20'
@@ -62,21 +63,19 @@ export default function FAQ() {
                 <div className="flex items-center justify-between p-5 sm:p-6 text-sm sm:text-base font-medium">
                   <span className={isExpanded ? 'text-text-primary font-semibold' : ''}>{item.question}</span>
                   {isExpanded ? (
-                    <ChevronUp className="w-5 h-5 text-accent-blue flex-shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-accent-blue flex-shrink-0 transition-transform duration-200" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-text-secondary flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-text-secondary flex-shrink-0 transition-transform duration-200" />
                   )}
                 </div>
 
                 {/* Accordion Content */}
-                <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isExpanded ? 'max-h-40 border-t border-white/5' : 'max-h-0'
-                  }`}
-                >
-                  <p className="p-5 sm:p-6 text-xs sm:text-sm text-text-secondary leading-relaxed">
-                    {item.answer}
-                  </p>
+                <div className={`accordion-content ${isExpanded ? 'is-open border-t border-white/5' : ''}`}>
+                  <div className="overflow-hidden min-h-0">
+                    <p className="p-5 sm:p-6 text-xs sm:text-sm text-text-secondary leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

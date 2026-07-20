@@ -29,7 +29,7 @@ export default function SolutionComparison() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Headings, Paragraph and Metrics */}
-          <div className="lg:col-span-6 space-y-8 text-left">
+          <div className="lg:col-span-6 space-y-8 text-left reveal-on-scroll">
             {/* Pill/Badge */}
             <div className="inline-flex items-center space-x-2">
               <span className="px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-text-secondary bg-card-bg border border-white/5 rounded-tag flex items-center gap-1.5">
@@ -52,8 +52,8 @@ export default function SolutionComparison() {
             {/* Metrics 2x2 Grid */}
             <div className="grid grid-cols-2 gap-6 sm:gap-8 pt-4">
               {metrics.map((metric, idx) => (
-                <div key={idx} className="space-y-1">
-                  <div className="font-serif text-3xl sm:text-4xl text-accent-blue font-normal">
+                <div key={idx} className="space-y-1 group/metric cursor-default">
+                  <div className="font-serif text-3xl sm:text-4xl text-accent-blue font-normal transition-transform duration-300 ease-[var(--ease-out-quart)] group-hover/metric:scale-[1.05] origin-left will-change-transform">
                     {metric.value}
                   </div>
                   <div className="text-xs text-text-secondary/60 uppercase tracking-wider font-semibold font-sans">
@@ -68,7 +68,10 @@ export default function SolutionComparison() {
           <div className="lg:col-span-6 flex flex-col items-center space-y-4">
             
             {/* "Before" Card */}
-            <div className="w-full p-6 sm:p-8 rounded-card bg-[#0c0c0c]/40 border border-white/5 text-left">
+            <div 
+              style={{ transitionDelay: '150ms' }}
+              className="reveal-on-scroll w-full p-6 sm:p-8 rounded-card bg-[#0c0c0c]/40 border border-white/5 text-left transition-colors duration-200 hover:border-white/10"
+            >
               <div className="flex items-center space-x-2.5 mb-5">
                 <div className="w-2 h-2 rounded-full bg-text-secondary/40" />
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary">Before CampaignOS</h3>
@@ -84,14 +87,17 @@ export default function SolutionComparison() {
             </div>
 
             {/* Connector Arrow */}
-            <div className="w-8 h-8 rounded-full bg-card-bg border border-white/5 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-card-bg border border-white/5 flex items-center justify-center transition-colors duration-300 hover:border-accent-blue/30">
               <ArrowDown className="w-4 h-4 text-accent-blue" />
             </div>
 
             {/* "With" Card */}
-            <div className="w-full p-6 sm:p-8 rounded-card bg-card-bg border border-accent-blue/30 text-left relative overflow-hidden group">
+            <div 
+              style={{ transitionDelay: '300ms' }}
+              className="reveal-on-scroll w-full p-6 sm:p-8 rounded-card bg-card-bg border border-accent-blue/30 text-left relative overflow-hidden group cursor-pointer transition-all duration-300 hover:border-accent-blue/50"
+            >
               {/* Subtle top corner glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-accent-blue opacity-5 blur-2xl pointer-events-none group-hover:opacity-10 transition-opacity duration-300" />
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-accent-blue opacity-5 blur-2xl pointer-events-none group-hover:opacity-15 transition-opacity duration-300" />
               
               <div className="flex items-center space-x-2.5 mb-5">
                 <div className="w-2 h-2 rounded-full bg-accent-blue animate-pulse" />
@@ -99,7 +105,7 @@ export default function SolutionComparison() {
               </div>
               <ul className="space-y-3">
                 {withBullets.map((bullet, idx) => (
-                  <li key={idx} className="flex items-start space-x-3 text-xs sm:text-sm text-text-primary">
+                  <li key={idx} className="flex items-start space-x-3 text-xs sm:text-sm text-text-primary transition-transform duration-200 group-hover:translate-x-0.5">
                     <Check className="w-4 h-4 text-accent-blue flex-shrink-0 mt-0.5" />
                     <span>{bullet}</span>
                   </li>

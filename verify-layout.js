@@ -20,6 +20,13 @@ import { chromium } from 'playwright';
   // 2. Tablet Breakpoint
   console.log('Capturing Tablet Breakpoint (768x1024)...');
   await page.setViewportSize({ width: 768, height: 1024 });
+  
+  // Test FAQ click to verify item doesn't disappear
+  console.log('Testing FAQ toggle click...');
+  await page.click('#faq .reveal-on-scroll:nth-child(2)');
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: 'assets/screenshot-faq-open.png' });
+  
   await page.screenshot({ path: 'assets/screenshot-tablet.png', fullPage: true });
   
   // 3. Mobile Breakpoint - Collapsed Menu

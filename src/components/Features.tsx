@@ -44,11 +44,12 @@ export default function Features() {
             return (
               <div 
                 key={idx}
-                className="relative p-6 sm:p-8 rounded-card bg-card-bg border border-white/5 flex flex-col justify-between transition-colors duration-300 hover:border-accent-blue/30 group overflow-hidden"
+                style={{ transitionDelay: `${idx * 150}ms` }}
+                className="reveal-on-scroll relative p-6 sm:p-8 rounded-card bg-card-bg border border-white/5 flex flex-col justify-between transition-colors duration-300 hover:border-accent-blue/30 group overflow-hidden cursor-pointer"
               >
-                <div>
+                <div className="transition-transform duration-300 ease-[var(--ease-out-quart)] group-hover:-translate-y-1 will-change-transform">
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-button bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-6">
+                  <div className="w-10 h-10 rounded-button bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-6 transition-transform duration-300 ease-[var(--ease-out-quart)] group-hover:scale-105 will-change-transform">
                     <Icon className="w-5 h-5" strokeWidth={1.5} />
                   </div>
 

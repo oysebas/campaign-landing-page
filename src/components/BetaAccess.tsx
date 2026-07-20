@@ -40,7 +40,7 @@ export default function BetaAccess() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Heading, Subheading and Form */}
-          <div className="lg:col-span-6 space-y-8 text-left">
+          <div className="lg:col-span-6 space-y-8 text-left reveal-on-scroll">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-text-primary font-normal leading-[1.1] tracking-wide">
               Upgrade your email workflow with CampaignOS
             </h2>
@@ -63,7 +63,7 @@ export default function BetaAccess() {
               ) : (
                 <button
                   onClick={() => setIsSubmitted(true)}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm transition-all duration-200"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
                 >
                   Get Started for FREE
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -79,32 +79,35 @@ export default function BetaAccess() {
               return (
                 <div
                   key={idx}
-                  className="p-5 sm:p-6 rounded-card bg-card-bg border border-white/5 flex flex-col items-center text-center relative overflow-hidden group hover:border-accent-blue/30 transition-all duration-300"
+                  style={{ transitionDelay: `${idx * 150}ms` }}
+                  className="reveal-on-scroll p-5 sm:p-6 rounded-card bg-card-bg border border-white/5 flex flex-col items-center text-center relative overflow-hidden group hover:border-accent-blue/30 transition-colors duration-300 cursor-pointer"
                 >
                   {/* Subtle hover background highlight */}
                   <div className="absolute inset-0 bg-accent-blue/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                  {/* Circular Icon */}
-                  <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-4">
-                    <Icon className="w-5 h-5" strokeWidth={1.5} />
+                  <div className="transition-transform duration-300 ease-[var(--ease-out-quart)] group-hover:-translate-y-1 will-change-transform flex flex-col items-center">
+                    {/* Circular Icon */}
+                    <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-4 transition-transform duration-300 ease-[var(--ease-out-quart)] group-hover:scale-105 will-change-transform">
+                      <Icon className="w-5 h-5" strokeWidth={1.5} />
+                    </div>
+
+                    {/* Accolade Title */}
+                    <h3 className="text-xs sm:text-sm font-semibold text-text-primary mb-2 uppercase tracking-wider">
+                      {acc.title}
+                    </h3>
+
+                    {/* 5 Stars */}
+                    <div className="flex space-x-0.5 mb-3 text-accent-blue">
+                      {[...Array(acc.stars)].map((_, starIdx) => (
+                        <Star key={starIdx} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+
+                    {/* Cohort */}
+                    <span className="text-[10px] text-text-secondary/40 uppercase tracking-widest font-mono">
+                      {acc.cohort}
+                    </span>
                   </div>
-
-                  {/* Accolade Title */}
-                  <h3 className="text-xs sm:text-sm font-semibold text-text-primary mb-2 uppercase tracking-wider">
-                    {acc.title}
-                  </h3>
-
-                  {/* 5 Stars */}
-                  <div className="flex space-x-0.5 mb-3 text-accent-blue">
-                    {[...Array(acc.stars)].map((_, starIdx) => (
-                      <Star key={starIdx} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-
-                  {/* Cohort */}
-                  <span className="text-[10px] text-text-secondary/40 uppercase tracking-widest font-mono">
-                    {acc.cohort}
-                  </span>
                 </div>
               );
             })}
