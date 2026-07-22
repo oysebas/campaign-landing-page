@@ -25,7 +25,7 @@ export default function Hero() {
             href={APP_SIGNUP_URL}
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-button bg-accent-blue hover:bg-accent-blue-hover text-text-primary font-semibold text-sm btn-active-scale"
           >
-            Get Started for FREE
+            Try It for FREE
             <ArrowRight className="ml-2 w-4 h-4" />
           </a>
           <a

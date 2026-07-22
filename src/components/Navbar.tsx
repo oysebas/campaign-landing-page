@@ -40,7 +40,7 @@ export default function Navbar() {
             href={APP_SIGNUP_URL}
             className="inline-flex items-center justify-center px-5 py-2.5 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale animate-none"
           >
-            Get Started for FREE
+            Try It for FREE
             <ArrowUpRight className="ml-1.5 w-3.5 h-3.5" />
           </a>
         </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="block text-center w-full px-5 py-3 rounded-button text-xs font-semibold uppercase tracking-wider bg-accent-blue hover:bg-accent-blue-hover text-text-primary btn-active-scale"
           >
-            Get Started for FREE
+            Try It for FREE
           </a>
         </div>
       </div>
